@@ -258,9 +258,13 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(name)s - %(level
 logger = logging.getLogger(__name__)
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
+import os
 
-app.mount("/static", StaticFiles(directory="../frontend/build/static"), name="static")
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BUILD_DIR = os.path.join(BASE_DIR, "frontend", "build")
+
+app.mount("/static", StaticFiles(directory=os.path.join(BUILD_DIR, "static")), name="static")
 
 @app.get("/")
 def serve():
-    return FileResponse("../frontend/build/index.html")
+    return FileResponse(os.path.join(BUILD_DIR, "index.html"))
