@@ -1,8 +1,22 @@
+# env files
 .env
 a.env
 *.env
-node_modules/
-build/
-__pycache__/ 
+
+# python
+__pycache__/
+*.pyc
+
+# jupyter
 .ipynb_checkpoints/
 *.ipynb
+
+# datasets (IMPORTANT)
+backend/_datasets/
+
+# frontend
+node_modules/
+build/
+
+# misc
+.DS_Store
