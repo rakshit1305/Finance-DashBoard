@@ -256,3 +256,11 @@ app.add_middleware(
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s")
 logger = logging.getLogger(__name__)
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
+
+app.mount("/static", StaticFiles(directory="../frontend/build/static"), name="static")
+
+@app.get("/")
+def serve():
+    return FileResponse("../frontend/build/index.html")
