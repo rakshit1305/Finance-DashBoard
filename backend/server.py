@@ -263,7 +263,7 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BUILD_DIR = os.path.join(BASE_DIR, "frontend", "build")
 
-app.mount("/static", StaticFiles(directory=os.path.join(BUILD_DIR, "static")), name="static")
+#app.mount("/static", StaticFiles(directory=os.path.join(BUILD_DIR, "static")), name="static")
 
 @app.get("/")
 def serve():
