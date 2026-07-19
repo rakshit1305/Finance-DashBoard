@@ -259,3 +259,19 @@ logger = logging.getLogger(__name__)
 @app.get("/")
 def home():
     return {"status": "ok", "message": "Backend is live 🚀"}
+    from fastapi import UploadFile, File
+from typing import List
+
+@app.post("/api/datasets/upload")
+async def upload_datasets(files: List[UploadFile] = File(...)):
+    file_names = []
+
+    for file in files:
+        contents = await file.read()
+        file_names.append(file.filename)
+
+    return {
+        "message": "Files uploaded successfully",
+        "files": file_names,
+        "dataset_id": "demo123"
+    }
