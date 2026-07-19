@@ -1,5 +1,5 @@
 import axios from "axios";
-const BACKEND_URL = "https://fullstack-app-production-e585.up.railway.app/";
+const BACKEND_URL = "https://fullstack-app-production-e585.up.railway.app";
 export const API = `${BACKEND_URL}/api`;
 const client = axios.create({ baseURL: API, timeout: 120000 });
 export async function uploadDatasets(files) {
